@@ -1,25 +1,59 @@
 ## zipfian_environments
 
-TODO(b/226112824): Add a description for your new project, explain what is
-being released here, etc... Additional, the following sections are normally
-expected for all releases. Feel free to add additional sections if appropriate
-for your project.
+This repository contains the environments released as part of the paper "Zipfian
+Environments for Reinforcement Learning" (https://arxiv.org/abs/2203.08222). It
+contains subfolders for each of the three environments proposed in the paper:
+1) Zipf's Playroom
+2) Zipf's Labyrinth
+3) Zipf's Gridworld
 
 ## Installation
 
-Write instructions for how the user should install your code. The instructions
-should ideally be valid when copy-pasted. You can combine this with the Usage
-section if there's no separate installation step.
+### zipfs_gridworld
+
+To install the necessary requirements for Zipf's gridword, you can run the
+following commands:
+
+```shell
+python3 -m venv zipfian_environments
+source zipfian_environments/bin/activate
+pip install --upgrade pip
+pip install -r gridworld/requirements.txt
+```
 
 ## Usage
 
-Write example usage of your code. The instructions should ideally be valid when
-copy-pasted, and will be used by your technical reviewer to verify that your
-package functions correctly.
+### zipfs_gridworld
+
+As an example, you can run the following code to load a Zipf's Gridworld
+environment and test out all the possible actions (note that the code will
+need to be run from within this directory).
+
+
+```
+from gridworld import zipfs_gridworld
+
+env = zipfs_gridworld.simple_builder(level_name='zipf_2')
+timestep = env.reset()
+for action in range(8):
+  timestep = env.step(action)
+```
 
 ## Citing this work
 
-Add citation details here, usually a pastable BibTeX snippet.
+If you use this work, please cite the following paper
+```
+@misc{chan2022zipfian,
+  doi = {10.48550/ARXIV.2203.08222},
+  url = {https://arxiv.org/abs/2203.08222},
+  author = {Chan, Stephanie C. Y. and Lampinen, Andrew K. and Richemond, Pierre H. and Hill, Felix},
+  keywords = {Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Zipfian environments for Reinforcement Learning},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {Creative Commons Attribution 4.0 International}
+}
+```
 
 ## Disclaimer
 
