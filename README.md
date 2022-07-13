@@ -9,6 +9,49 @@ contains subfolders for each of the three environments proposed in the paper:
 
 ## Installation
 
+### zipfs_playroom
+
+These tasks are [Unity-based](http://unity3d.com/), and are provided through
+pre-packaged [Docker containers](http://www.docker.com).
+
+This package consists of support code to run these Docker containers. You
+interact with the task environment via a
+[`dm_env`](http://www.github.com/deepmind/dm_env) Python interface.
+
+#### Requirements
+
+This environment requires [Docker](https://www.docker.com),
+[Python](https://www.python.org/) 3.6.1 or later and a x86-64 CPU with SSE4.2
+support. We do not attempt to maintain a working version for Python 2.
+
+Note: We recommend using
+[Python virtual environment](https://docs.python.org/3/tutorial/venv.html) to
+mitigate conflicts with your system's Python environment.
+
+Download and install Docker:
+
+*   For Linux, install [Docker-CE](https://docs.docker.com/install/)
+*   Install Docker Desktop for
+    [OSX](https://docs.docker.com/docker-for-mac/install/) or
+    [Windows](https://docs.docker.com/docker-for-windows/install/).
+
+
+#### Installation
+
+You can install `zipfs_playroom` by cloning a local copy of our GitHub
+repository:
+
+```bash
+$ git clone https://github.com/deepmind/dm_zipfian_environments.git
+$ pip install ./dm_zipfian_environments/playroom
+```
+
+You can install the dependencies for the `examples/` with:
+
+```bash
+$ pip install ./dm-zipf-playroom[examples]
+```
+
 ### zipfs_labyrinth
 
 Zipf's Labyrinth depends on DeepMind Labyrinth, which you will need to install
@@ -38,6 +81,20 @@ pip install -r gridworld/requirements.txt
 
 ## Usage
 
+
+### Zipf's Playroom
+
+Once `dm_zipfian_environments/playroom` is installed, to instantiate a `dm_env` instance run the
+following:
+
+```python
+import dm_zipfs_playroom
+
+settings = dm_zipfs_playroom.EnvironmentSettings(seed=123,
+    level_name='lift/lift_shape_zipf2')
+env = dm_zipfs_playroom.load_from_docker(settings)
+```
+
 ### Zipf's Labyrinth
 
 As an example, you can run the following code to load a Zipf's Labyrinth
@@ -57,7 +114,7 @@ You may first need to set the deepmind lab runfiles path as follows:
 ```
 import deepmind_lab
 
-deepmind_lab.set_runfiles_path(dmlab_runfiles_path)
+deepmind_lab.set_runfiles_path("INSERT PATH HERE")
 ```
 
 ### Zipf's Gridworld
