@@ -43,7 +43,7 @@ _MAX_CONNECTION_ATTEMPTS = 10
 # Port to expect the docker environment to internally listen on.
 _DOCKER_INTERNAL_GRPC_PORT = 10000
 
-_DEFAULT_DOCKER_IMAGE_NAME = 'gcr.io/google.com/deepmind-environments-staging/dm_zipfian_distributions:dm_zipfian_distributions_release_RC00'
+_DEFAULT_DOCKER_IMAGE_NAME = 'gcr.io/google.com/deepmind-environments-staging/dm_zipfian_distributions:dm_zipfian_distributions_staging_gcr_20220629_RC00'
 
 _ZIPFIAN_DISTRIBUTIONS_TASK_OBSERVATIONS = ['RGB_INTERLEAVED', 'TEXT']
 

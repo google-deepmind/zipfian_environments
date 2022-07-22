@@ -19,20 +19,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import importlib
-import types
 from setuptools import find_packages
 from setuptools import setup
 
-loader = importlib.machinery.SourceFileLoader(
-    '_version', 'zipfian_environments/playroom/_version.py')
-mod = types.ModuleType(loader.name)
-loader.exec_module(mod)
-_version = mod.__version__
-
 setup(
     name='dm-zipf-playroom',
-    version=_version,
+    version='1.0.0',
     description=('DeepMind Zipf\'s Playroom, a set of Unity-based'
                  'machine-learning research tasks.'),
     author='DeepMind',
