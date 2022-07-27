@@ -44,13 +44,7 @@ To install `zipfs_playroom`:
 python3 -m venv zipfs_playroom_venv
 source zipfs_playroom_venv/bin/activate
 pip install --upgrade pip
-pip install ./zipfian_environments/playroom
-```
-
-You can additionally install the dependencies for the `examples/` with:
-
-```
-pip install ./zipfian_environments/playroom[examples]
+pip install -r ./zipfian_environments/playroom/requirements.txt
 ```
 
 ### zipfs_labyrinth
@@ -82,11 +76,12 @@ pip install -r ./zipfian_environments/gridworld/requirements.txt
 
 ## Usage
 
+All examples assume execution from the directory that you cloned the
+repository into.
 
 ### Zipf's Playroom
 
-Once `zipfian_environments/playroom` is installed, to instantiate a `dm_env`
-instance run the following:
+As an example, you can instantiate a `dm_env` instance by running the following:
 
 ```python
 import zipfian_environments.playroom as zipfs_playroom
@@ -94,6 +89,7 @@ import zipfian_environments.playroom as zipfs_playroom
 settings = zipfs_playroom.EnvironmentSettings(seed=123,
     level_name='lift/lift_shape_zipf2')
 env = zipfs_playroom.load_from_docker(settings)
+timestep = env.reset()
 ```
 
 ### Zipf's Labyrinth
